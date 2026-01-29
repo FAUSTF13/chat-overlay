@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<title>Unified Chat</title>
+
+<style>
+body {
+  margin: 0;
+  background: transparent;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+#chat {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.msg {
+  background: rgba(0,0,0,0.6);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 8px;
+  animation: fadeIn 0.25s ease;
+  font-size: 14px;
+}
+
+.platform {
+  font-size: 11px;
+  opacity: 0.75;
+}
+
+.twitch { color: #a970ff; }
+.youtube { color: #ff4e45; }
+.tiktok { color: #25f4ee; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+
+<body>
+<div id="chat"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/tmi.js@1.8.5/dist/tmi.min.js"></script>
+
+<script>
+const chat = document.getElementById("chat");
+
+function addMessage(platform, user, text, cls) {
+  co
